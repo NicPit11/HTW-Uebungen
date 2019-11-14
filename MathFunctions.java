@@ -13,10 +13,10 @@ public class MathFunctions {
     /** Methode zum berechnen der Teilersumme.
     * Hier wird die eingegebene Zahl durch jede kleinere Zahl geteilt und daraus die Summe gebildet.
     */ 
-    public static long berechneTeilSumme(long zahl) {
+    public static long berechneTeilerSumme(long zahl) {
         if (zahl<0){
-            throw new IllegalArgumentException("es dürfen nur natürliche Zahlen"+
-            "eingegeben werden ");}
+            throw new IllegalArgumentException("es dürfen nur natuerliche Zahlen"+
+            " eingegeben werden ");}
         if (zahl ==0) {
             throw new IllegalArgumentException("die Zahl 0 hat keine Teiler");  }
         long summe = 0;
@@ -36,21 +36,18 @@ public class MathFunctions {
         if( isbn<=MIN ||isbn>MAX){
             throw new IllegalArgumentException(
             "Zahl ist nicht 9-stellig"); }
-        long summe= 0;
-        long pruefziffer= 0;
         long isbn1=0;
         while(isbn>0){
             for (long i=9; i>0; i--) {
              isbn1 = isbn1 + (isbn % 10) * i;
              isbn= isbn/10 ;
-             summe = isbn1;
             }
         }
-        pruefziffer = summe % 11;
-        if(pruefziffer == 10) {
-            return "Pruefziffer : X mod 11";
+        isbn1 = isbn1 % 11;
+        if(isbn1 == 10) {
+            return String.valueOf("X");
         }
-        return "Pruefziffer: "+pruefziffer +" mod 11";
+        return String.valueOf(isbn1);
     }
     
     /**Methode zur berechnung der Nullstellen einer quadratischen Funktion .
@@ -74,6 +71,30 @@ public class MathFunctions {
            Ergebnis = "Komplexe Nullstellen";
         } 
         return Ergebnis; 
+    }
+    
+    public static double berechneReihensumme(int n, double x) {
+        double reihensumme=0;  
+       // while (i != n) {
+            for (int i=1; i<=n;i++) {
+                //reihensumme= Math.pow((x-1),i)/(i*Math.pow((x),i ));
+               
+            }
+      //  }
+        return reihensumme;
+      }
+    public static boolean istSummevonPotenzen(int n) {
+        for(int a=1;a<n; a++) {
+            for(int b=1;b<n;b++){
+                for(int c=1;c<n;c++){
+               
+                if(n==(a*a*a*a)+(b*b*b)+(c*c)) {
+                    return true;
+                }
+            }
+        }
+      }
+      return false;
     }
 }
     
